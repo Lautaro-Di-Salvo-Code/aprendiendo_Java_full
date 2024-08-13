@@ -11,9 +11,6 @@ public class Ejercicio {
 
         for (int i = 0; i < Vector.length; i++) {
             Vector[i] = escaner.nextInt();
-           
-
-
             System.out.println("El array/vector tiene estas cifras: " + Vector[i]);
         }
         System.out.println("contador: "+contador);
