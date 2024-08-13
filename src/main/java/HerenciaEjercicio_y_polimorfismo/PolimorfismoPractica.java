@@ -1,5 +1,5 @@
 
-package HerenciaEjercicio2;
+package HerenciaEjercicio_y_polimorfismo;
 
 import java.util.Scanner;
 
