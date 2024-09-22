@@ -11,7 +11,7 @@ public class ArrayListPracrice {
     List<ArrayClassPractice> arregloLista = new ArrayList<> ();
     List<ArrayClassPractice> arregloLista2 = new ArrayList<> ();
     List<ArrayClassPractice> arregloLista3 = new ArrayList<> ();
-
+//        arregloLista3.
 
         arregloLista.add( new ArrayClassPractice(" Roberto ", 23, 34.5));
         arregloLista2.add(new ArrayClassPractice(" Matias ", 45, 10.5));

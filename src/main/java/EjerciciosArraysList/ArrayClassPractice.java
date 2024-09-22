@@ -7,6 +7,15 @@ public class ArrayClassPractice {
     private int cifra;
     private double precio;
 
+    public ArrayClassPractice() {
+    }
+
+    public ArrayClassPractice(String nombre, int cifra, double precio) {
+        this.nombre = nombre;
+        this.cifra = cifra;
+        this.precio = precio;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -28,15 +37,6 @@ public class ArrayClassPractice {
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public ArrayClassPractice() {
-    }
-
-    public ArrayClassPractice(String nombre, int cifra, double precio) {
-        this.nombre = nombre;
-        this.cifra = cifra;
         this.precio = precio;
     }
 }
