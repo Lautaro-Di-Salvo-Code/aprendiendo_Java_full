@@ -29,12 +29,6 @@ class MasSwing extends JFrame {
 //        add(laminaPaint);
         // Crear una instancia de Eventos (el panel con el botón)
 //        Eventos eventoo = new Eventos();
-        EventosTeclado eventosTeclado = new EventosTeclado() ;
-        OyenteDeClick eventosMouse = new OyenteDeClick();
-//        // Agregar el panel de eventos a la ventana
-//        add(eventoo);
-        addMouseListener(eventosMouse);
-        addKeyListener(eventosTeclado);
 //        Eventos de ventana
 //        Eventos_ventana oir_ventana = new Eventos_ventana();
 //        Lo mismo pero con una linea menos
@@ -154,53 +148,4 @@ class Change_state implements WindowStateListener{
         }
     }
 }
-//Oyente de teclado
-class EventosTeclado implements KeyListener{
-    @Override
-    public void keyTyped(KeyEvent e) {
-//        int code  = e.getKeyCode() ;
-//        System.out.println(code);
 
-
-    }
-    @Override
-    public void keyPressed(KeyEvent e) {
-         char letra = e.getKeyChar();
-         System.out.println(letra);
-
-    }
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
-}
-//Oyente de Raton
-class OyenteDeClick implements MouseListener{
-
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        System.out.println("Se  clickeó un boton del mouse y se desclikeo");
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        System.out.println("Se precionó");
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        System.out.println("Entro mouse a la ventana");
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        System.out.println("Salió el  mouse de la ventana");
-    }
-}
