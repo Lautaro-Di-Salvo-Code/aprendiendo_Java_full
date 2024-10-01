@@ -10,7 +10,9 @@ import java.io.IOException;
 class SwingYEventos_ventana  {
     public static void main(String[] args) {
         MasSwing masSwing = new MasSwing();
+//        MasSwing masSwing2 = new MasSwing();
         masSwing.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        masSwing2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //        Eventos eventoo = new Eventos();
     }
 }
@@ -27,13 +29,54 @@ class MasSwing extends JFrame {
 //        add(laminaPaint);
         // Crear una instancia de Eventos (el panel con el botón)
 //        Eventos eventoo = new Eventos();
+        EventosTeclado eventosTeclado = new EventosTeclado() ;
+        OyenteDeClick eventosMouse = new OyenteDeClick();
 //        // Agregar el panel de eventos a la ventana
 //        add(eventoo);
+        addMouseListener(eventosMouse);
+        addKeyListener(eventosTeclado);
 //        Eventos de ventana
-        Eventos_ventana oir_ventana = new Eventos_ventana();
-        addWindowListener(oir_ventana);
+//        Eventos_ventana oir_ventana = new Eventos_ventana();
+//        Lo mismo pero con una linea menos
+        addWindowListener(new Eventos_ventana());
+        addWindowStateListener(new Change_state());
     }
 
+}
+class Eventos_ventana implements WindowListener{
+    @Override
+    public void windowOpened(WindowEvent e) {
+        System.out.println("Abre  ventana");
+
+    }
+    @Override
+    public void windowClosing(WindowEvent e) {
+        System.out.println("Cerrando  ventana");
+
+    }
+    @Override
+    public void windowClosed(WindowEvent e) {
+        System.out.println("Ventana cerrada");
+
+    }
+    @Override
+    public void windowIconified(WindowEvent e) {
+        System.out.println("Ventana...");
+
+    }
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+        System.out.println("Ventana activa");
+    }
+    @Override
+    public void windowActivated(WindowEvent e) {
+        System.out.println("Ventana activada");
+    }
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+        System.out.println("Ventana desactivada");
+
+    }
 }
 //Colores, texto , figuras, lineas y demas
 //class Lamina extends JPanel{
@@ -72,11 +115,14 @@ class MasSwing extends JFrame {
 //class Eventos extends JPanel implements ActionListener {
 //    JButton boton_rojo = new JButton("Rojo");
 //    JButton boton_azul = new JButton("Azul");
+//    JButton reset_color = new JButton("reset");
 //    public Eventos(){
 //        add(boton_rojo);
 //        add(boton_azul);
+//        add(reset_color);
 //        boton_rojo.addActionListener(this);
 //        boton_azul.addActionListener(this);
+//        reset_color.addActionListener(this);
 //    }
 //    @Override
 //    public void actionPerformed(ActionEvent e) {
@@ -89,46 +135,72 @@ class MasSwing extends JFrame {
 //        setBackground(Color.BLUE);
 //
 //        }
+//        if (btn_click == reset_color){
+//        setBackground(Color.white);
+//
+//        }
 //    }
 //}
-class Eventos_ventana implements WindowListener{
+// Detector de tipo de estado de ventana
+class Change_state implements WindowStateListener{
     @Override
-    public void windowOpened(WindowEvent e) {
-        System.out.println("Abre  ventana");
+    public void windowStateChanged(WindowEvent e) {
+        System.out.println("La ventana cambio de estado");
+        if (e.getNewState() == 1){
+            System.out.println("Cambio de estado on");
+        } else if (e.getNewState() == 1) {
+            System.out.println("Cambio de estado of");
+
+        }
+    }
+}
+//Oyente de teclado
+class EventosTeclado implements KeyListener{
+    @Override
+    public void keyTyped(KeyEvent e) {
+//        int code  = e.getKeyCode() ;
+//        System.out.println(code);
+
+
+    }
+    @Override
+    public void keyPressed(KeyEvent e) {
+         char letra = e.getKeyChar();
+         System.out.println(letra);
+
+    }
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+}
+//Oyente de Raton
+class OyenteDeClick implements MouseListener{
+
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        System.out.println("Se  clickeó un boton del mouse y se desclikeo");
 
     }
 
     @Override
-    public void windowClosing(WindowEvent e) {
-        System.out.println("Cerrando  ventana");
+    public void mousePressed(MouseEvent e) {
+        System.out.println("Se precionó");
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
 
     }
 
     @Override
-    public void windowClosed(WindowEvent e) {
-        System.out.println("Ventana cerrada");
-
+    public void mouseEntered(MouseEvent e) {
+        System.out.println("Entro mouse a la ventana");
     }
 
     @Override
-    public void windowIconified(WindowEvent e) {
-        System.out.println("Ventana...");
-
-    }
-
-    @Override
-    public void windowDeiconified(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowActivated(WindowEvent e) {
-        System.out.println("Ventana activada");
-    }
-
-    @Override
-    public void windowDeactivated(WindowEvent e) {
-        System.out.println("Ventana desactivada");
-
+    public void mouseExited(MouseEvent e) {
+        System.out.println("Salió el  mouse de la ventana");
     }
 }
